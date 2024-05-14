@@ -80,6 +80,13 @@ client.on('message', async msg => {
                 const imageMedia12 = MessageMedia.fromFilePath("./images/bracelets/stainlessSteelThorMjolnirHammerLeatherCord.jpg");
                 const imageMedia13 = MessageMedia.fromFilePath("./images/bracelets/vintageFashionHandmadeBlackRubberSilver.jpg");
 
+                const imageMedia14 = MessageMedia.fromFilePath("./images/bracelets/SimpleFashionBlackLeatherBraceletForMen.png");
+                const imageMedia15 = MessageMedia.fromFilePath("./images/bracelets/DoubleWrapMensLeatherStainlessBracelet.png");
+                const imageMedia16 = MessageMedia.fromFilePath("./images/bracelets/HDSkullLeatherStainlessSteelSilverBracelet.png");
+                const imageMedia17 = MessageMedia.fromFilePath("./images/bracelets/BlackLeatherWithSilverWireBracelet.png");
+                const imageMedia18 = MessageMedia.fromFilePath("./images/bracelets/StainlessSteelBlackMultiStrandMensBraidedLeather.png");
+
+
 
                 // const imageMedia1 = await MessageMedia.fromUrl("https://cdn.shopify.com/s/files/1/0785/1478/2486/files/aromatisator_1-1000x1000.jpg?v=1692993352");
                 await client.sendMessage(msg.from, imageMedia1);
@@ -96,6 +103,13 @@ client.on('message', async msg => {
                 await client.sendMessage(msg.from, imageMedia11);
                 await client.sendMessage(msg.from, imageMedia12);
                 await client.sendMessage(msg.from, imageMedia13);
+
+                await client.sendMessage(msg.from, imageMedia14);
+                await client.sendMessage(msg.from, imageMedia15);
+                await client.sendMessage(msg.from, imageMedia16);
+                await client.sendMessage(msg.from, imageMedia17);
+                await client.sendMessage(msg.from, imageMedia18);
+
 
 
 
