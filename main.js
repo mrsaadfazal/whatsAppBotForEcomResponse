@@ -66,26 +66,23 @@ client.on('message', async msg => {
 
             // wait for 5 seconds then send the video
             setTimeout(async () => {
-                const imageMedia1 = MessageMedia.fromFilePath("./images/bracelets/10mmCubanIcedOut.jpg");
-                const imageMedia2 = MessageMedia.fromFilePath("./images/bracelets/11-5mmpureStainlessSteelItalianMeshLinkChain.jpg");
-                const imageMedia3 = MessageMedia.fromFilePath("./images/bracelets/blackFreeSizeCuffKadaBracelets.jpg");
-                const imageMedia4 = MessageMedia.fromFilePath("./images/bracelets/blackMetalBracele.jpg");
-                const imageMedia5 = MessageMedia.fromFilePath("./images/bracelets/brownOpenable.jpg");
-                const imageMedia6 = MessageMedia.fromFilePath("./images/bracelets/fashionHandMadeFeatherBlackRUbberSilver.jpg");
-                const imageMedia7 = MessageMedia.fromFilePath("./images/bracelets/goldBracelet.jpg");
-                const imageMedia8 = MessageMedia.fromFilePath("./images/bracelets/handmadeBlack.jpg");
-                const imageMedia9 = MessageMedia.fromFilePath("./images/bracelets/handmadeMetalDshapBracelt.jpg");
-                const imageMedia10 = MessageMedia.fromFilePath("./images/bracelets/pureStainlessSteelItalianBracelet.jpg");
-                const imageMedia11 = MessageMedia.fromFilePath("./images/bracelets/stainlessSteelDragon.jpg");
-                const imageMedia12 = MessageMedia.fromFilePath("./images/bracelets/stainlessSteelThorMjolnirHammerLeatherCord.jpg");
-                const imageMedia13 = MessageMedia.fromFilePath("./images/bracelets/vintageFashionHandmadeBlackRubberSilver.jpg");
-
-                const imageMedia14 = MessageMedia.fromFilePath("./images/bracelets/SimpleFashionBlackLeatherBraceletForMen.png");
-                const imageMedia15 = MessageMedia.fromFilePath("./images/bracelets/DoubleWrapMensLeatherStainlessBracelet.png");
-                const imageMedia16 = MessageMedia.fromFilePath("./images/bracelets/HDSkullLeatherStainlessSteelSilverBracelet.png");
-                const imageMedia17 = MessageMedia.fromFilePath("./images/bracelets/BlackLeatherWithSilverWireBracelet.png");
-                const imageMedia18 = MessageMedia.fromFilePath("./images/bracelets/StainlessSteelBlackMultiStrandMensBraidedLeather.png");
-
+                const imageMedia1 = MessageMedia.fromFilePath("./images/bracelets/1.jpg");
+                const imageMedia2 = MessageMedia.fromFilePath("./images/bracelets/2.jpg");
+                const imageMedia3 = MessageMedia.fromFilePath("./images/bracelets/3.jpg");
+                const imageMedia4 = MessageMedia.fromFilePath("./images/bracelets/4.jpg");
+                const imageMedia5 = MessageMedia.fromFilePath("./images/bracelets/5.jpg");
+                const imageMedia6 = MessageMedia.fromFilePath("./images/bracelets/6.jpg");
+                const imageMedia7 = MessageMedia.fromFilePath("./images/bracelets/7.jpg");
+                const imageMedia8 = MessageMedia.fromFilePath("./images/bracelets/8.jpg");
+                const imageMedia9 = MessageMedia.fromFilePath("./images/bracelets/9.jpg");
+                const imageMedia10 = MessageMedia.fromFilePath("./images/bracelets/10.jpg");
+                const imageMedia11 = MessageMedia.fromFilePath("./images/bracelets/11.jpg");
+                const imageMedia12 = MessageMedia.fromFilePath("./images/bracelets/12.jpg");
+                const imageMedia13 = MessageMedia.fromFilePath("./images/bracelets/13.jpg");
+                const imageMedia14 = MessageMedia.fromFilePath("./images/bracelets/14.jpg");
+                const imageMedia15 = MessageMedia.fromFilePath("./images/bracelets/15.jpg");
+                const imageMedia16 = MessageMedia.fromFilePath("./images/bracelets/16.jpg");
+                const imageMedia17 = MessageMedia.fromFilePath("./images/bracelets/17.jpg");
 
 
                 // const imageMedia1 = await MessageMedia.fromUrl("https://cdn.shopify.com/s/files/1/0785/1478/2486/files/aromatisator_1-1000x1000.jpg?v=1692993352");
@@ -103,16 +100,10 @@ client.on('message', async msg => {
                 await client.sendMessage(msg.from, imageMedia11);
                 await client.sendMessage(msg.from, imageMedia12);
                 await client.sendMessage(msg.from, imageMedia13);
-
                 await client.sendMessage(msg.from, imageMedia14);
                 await client.sendMessage(msg.from, imageMedia15);
                 await client.sendMessage(msg.from, imageMedia16);
                 await client.sendMessage(msg.from, imageMedia17);
-                await client.sendMessage(msg.from, imageMedia18);
-
-
-
-
             }, 2000); // 5000 ms = 5 s
 
             setTimeout(async () => {
