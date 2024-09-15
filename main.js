@@ -121,6 +121,29 @@ client.on('message', async msg => {
             fs.appendFileSync('numbers.txt', senderNumber + '\n');
             console.log("Added number to file:", senderNumber);
         }
+
+        else if (msg.body.toLowerCase().includes("Handaiyan")) {
+
+
+            setTimeout(async () => {
+                await client.sendMessage(msg.from, `السلام علیکم!
+                    اگر آپ 12 پیس میٹ لِکوئڈ لپ اسٹک اور ہائی شائن لپ گلوس سیٹ کا آرڈر دینا چاہتے ہیں، تو براہ کرم اپنا نام، موبائل نمبر، اسٹریٹ کا نام، گھر کا نمبر، قریبی مشہور جگہ، شہر اور صوبہ ہمیں بھیج دیں۔
+                    
+                    انشاءاللہ آپ کو بہترین معیار کے ساتھ پروڈکٹ فراہم کی جائے گی اور 2 سے 3 دن کے اندر ڈیلیور کر دیا جائے گا۔
+                    قیمت: 2950 روپے
+                    ڈیلیوری چارجز: 250 روپے
+                    کل قیمت (ڈیلیوری سمیت): 3200 روپے
+                    
+                    انشاءاللہ فون پر آپ سے آرڈر کی تصدیق کر لی جائے گی۔`);
+            }, 15000);
+
+            setTimeout(async () => {
+                const video = MessageMedia.fromFilePath("./videos/Handaiyan/handaiyanVideo.mp4");
+            }, 5000); // 5000 ms = 5 s
+            // Save the sender's number to the file
+            fs.appendFileSync('numbers.txt', senderNumber + '\n');
+            console.log("Added number to file:", senderNumber);
+        }
         else if (msg.body.toLowerCase().includes('solar military helicopter')) {
 
 
