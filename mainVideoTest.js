@@ -88,6 +88,16 @@ client.on('message', async (msg) => {
             }, 5000);
 
             setTimeout(async () => {
+                if (videoMedia) {
+                    // Send the pre-encoded video
+                    await client.sendMessage(msg.from, videoMedia);
+                    console.log('Video sent successfully.');
+                } else {
+                    console.error('Video not available to send.');
+                }
+            }, 6000); // 6 seconds after the first message
+
+            setTimeout(async () => {
                 await client.sendMessage(
                     msg.from,
                     `اگر آپ 12 پیس میٹ لِکوئڈ لپ اسٹک اور ہائی شائن لپ گلوس سیٹ کا آرڈر دینا چاہتے ہیں، تو براہ کرم اپنا نام، موبائل نمبر، اسٹریٹ کا نام، گھر کا نمبر، قریبی مشہور جگہ، شہر اور صوبہ ہمیں بھیج دیں۔
@@ -100,17 +110,9 @@ client.on('message', async (msg) => {
 انشاءاللہ فون پر آپ سے آرڈر کی تصدیق کر لی جائے گی۔`
                 );
                 console.log('Second message sent.');
-            }, 15000);
+            }, 20000);
 
-            setTimeout(async () => {
-                if (videoMedia) {
-                    // Send the pre-encoded video
-                    await client.sendMessage(msg.from, videoMedia);
-                    console.log('Video sent successfully.');
-                } else {
-                    console.error('Video not available to send.');
-                }
-            }, 25000); // 25 seconds delay
+
 
             // Save the sender's number to the file
             fs.appendFileSync('numbers.txt', senderNumber + '\n');
