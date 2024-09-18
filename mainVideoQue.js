@@ -99,21 +99,13 @@ async function processQueue() {
     const msg = messageQueue.shift(); // Get the first message in the queue
     const senderNumber = msg.from;
 
-    // Check if the number is the admin's number and skip if it is
-    if (senderNumber.includes("923125581867")) {
-        console.log("Admin number detected, skipping the message.");
-        isProcessing = false;
-        processQueue(); // Process the next message
-        return;
-    }
-
     // Read the file to check if the number exists
     const existingNumbers = fs.existsSync('numbers.txt')
         ? fs.readFileSync('numbers.txt', 'utf-8').split('\n').filter(Boolean)
         : [];
 
     if (existingNumbers.includes(senderNumber)) {
-        // Number is in the list, don't send the message
+        // Number is in the list, don't add or process further
         isProcessing = false;
         processQueue(); // Process the next message
         return;
@@ -133,9 +125,13 @@ async function processQueue() {
             }
         }, 8000); // 6 seconds after the first message
 
-        // Save the sender's number to the file
-        fs.appendFileSync('numbers.txt', senderNumber + '\n');
-        console.log('Added number to file:', senderNumber);
+        // Don't add admin number to the list, but add other numbers
+        if (senderNumber !== "923125581867") {
+            fs.appendFileSync('numbers.txt', senderNumber + '\n');
+            console.log('Added number to file:', senderNumber);
+        } else {
+            console.log('Admin number detected, skipping adding to the list.');
+        }
 
     } else if (msg.body.toLowerCase().includes("password lock")) {
         setTimeout(async () => {
@@ -155,9 +151,13 @@ async function processQueue() {
             await client.sendMessage(msg.from, imageMedia4);
         }, 8000); // 5000 ms = 5 s
 
-        // Save the sender's number to the file
-        fs.appendFileSync('numbers.txt', senderNumber + '\n');
-        console.log('Added number to file:', senderNumber);
+        // Don't add admin number to the list, but add other numbers
+        if (senderNumber !== "923125581867") {
+            fs.appendFileSync('numbers.txt', senderNumber + '\n');
+            console.log('Added number to file:', senderNumber);
+        } else {
+            console.log('Admin number detected, skipping adding to the list.');
+        }
     }
 
     isProcessing = false;
