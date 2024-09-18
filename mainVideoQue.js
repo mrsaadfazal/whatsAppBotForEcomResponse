@@ -15,6 +15,7 @@ const client = new Client({
     },
 });
 
+let adminNum = "923125581867@c.us"
 let videoMedia; // Declare videoMedia variable to be used later
 
 // Pre-encode the video at startup
@@ -126,7 +127,7 @@ async function processQueue() {
         }, 8000); // 6 seconds after the first message
 
         // Don't add admin number to the list, but add other numbers
-        if (senderNumber !== "923125581867") {
+        if (senderNumber !== adminNum) {
             fs.appendFileSync('numbers.txt', senderNumber + '\n');
             console.log('Added number to file:', senderNumber);
         } else {
@@ -152,7 +153,7 @@ async function processQueue() {
         }, 8000); // 5000 ms = 5 s
 
         // Don't add admin number to the list, but add other numbers
-        if (senderNumber !== "923125581867") {
+        if (senderNumber !== adminNum) {
             fs.appendFileSync('numbers.txt', senderNumber + '\n');
             console.log('Added number to file:', senderNumber);
         } else {
