@@ -110,16 +110,12 @@ async function processQueue() {
         processQueue(); // Process the next message
         return;
     } else if (msg.body.toLowerCase().includes('handaiyan')) {
-        // Save the sender's number to the file
-        fs.appendFileSync('numbers.txt', senderNumber + '\n');
-        console.log('Added number to file:', senderNumber);
-
-        try {
-            // Send messages with delays
-            await client.sendMessage(msg.from, `Hello! I am a bot. I see you mentioned Handaiyan. I will send you a video in a few seconds.`);
+        setTimeout(async () => {
+            await client.sendMessage(msg.from, `السلام علیکم!\nاگر آپ 12 پیس میٹ لِکوئڈ لپ اسٹک اور ہائی شائن لپ گلوس سیٹ کا آرڈر دینا چاہتے ہیں، تو براہ کرم اپنا نام، موبائل نمبر، اسٹریٹ کا نام، گھر کا نمبر، قریبی مشہور جگہ، شہر اور صوبہ ہمیں بھیج دیں۔\n\nانشاءاللہ آپ کو بہترین معیار کے ساتھ پروڈکٹ فراہم کی جائے گی اور 2 سے 3 دن کے اندر ڈیلیور کر دیا جائے گا۔\n\nقیمت: 2950 روپے\nڈیلیوری چارجز: 250 روپے\nکل قیمت (ڈیلیوری سمیت): 3200 روپے\n\nانشاءاللہ فون پر آپ سے آرڈر کی تصدیق کر لی جائے گی۔`);
             console.log('First message sent.');
-            await sleep(6000); // Wait for 6 seconds
+        }, 6000);
 
+        setTimeout(async () => {
             if (videoMedia) {
                 // Send the pre-encoded video
                 await client.sendMessage(msg.from, videoMedia);
@@ -127,10 +123,40 @@ async function processQueue() {
             } else {
                 console.error('Video not available to send.');
             }
-            await sleep(2000); // Wait for 2 seconds before processing next message
-        } catch (err) {
-            console.error('Error sending messages:', err);
-        }
+        }, 8000); // 6 seconds after the first message
+
+        // Save the sender's number to the file
+        fs.appendFileSync('numbers.txt', senderNumber + '\n');
+        console.log('Added number to file:', senderNumber);
+
+
+
+    } else if (msg.body.toLowerCase().includes("password lock")) {
+        setTimeout(async () => {
+            await client.sendMessage(msg.from, `السلام علیکم!\nاگر آپ "Steering Wheel Password Lock - Anti Theft Device Car Lock" کا آرڈر دینا چاہتے ہیں، تو براہ کرم اپنا نام، موبائل نمبر، اسٹریٹ کا نمبر، گھر کا نمبر، قریبی مشہور جگہ، شہر اور صوبہ ہمیں بھیج دیں۔\n\nانشاءاللہ آپ کو بہترین معیار کے ساتھ پروڈکٹ فراہم کی جائے گی اور 2 سے 3 دن کے اندر ڈیلیور کر دیا جائے گا۔\n\nقیمت: 7950 روپے (ڈیلیوری چارجز شامل ہیں)\n\nانشاءاللہ فون پر آپ سے آرڈر کی تصدیق کر لی جائے گی۔`);
+            console.log('First message sent.');
+        }, 6000);
+
+
+
+        setTimeout(async () => {
+            const imageMedia1 = MessageMedia.fromFilePath("./images/PasswordLock/1.jpeg");
+            const imageMedia2 = MessageMedia.fromFilePath("./images/PasswordLock/2.jpeg");
+            const imageMedia3 = MessageMedia.fromFilePath("./images/PasswordLock/3.jpeg");
+            const imageMedia4 = MessageMedia.fromFilePath("./images/PasswordLock/4.jpeg");
+
+
+
+            // const imageMedia1 = await MessageMedia.fromUrl("https://cdn.shopify.com/s/files/1/0785/1478/2486/files/aromatisator_1-1000x1000.jpg?v=1692993352");
+            await client.sendMessage(msg.from, imageMedia1);
+            await client.sendMessage(msg.from, imageMedia2);
+            await client.sendMessage(msg.from, imageMedia3);
+            await client.sendMessage(msg.from, imageMedia4);
+        }, 8000); // 5000 ms = 5 s
+
+        // Save the sender's number to the file
+        fs.appendFileSync('numbers.txt', senderNumber + '\n');
+        console.log('Added number to file:', senderNumber);
     }
 
     isProcessing = false;

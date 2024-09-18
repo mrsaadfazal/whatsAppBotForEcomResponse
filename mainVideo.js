@@ -57,6 +57,7 @@ let videoMedia; // Declare videoMedia variable to be used later
     }
 })();
 
+
 client.on('qr', (qr) => {
     // Display QR code in the terminal
     qrcode.generate(qr, { small: true });
@@ -97,9 +98,32 @@ client.on('message', async (msg) => {
                 }
             }, 8000); // 6 seconds after the first message
 
+            // Save the sender's number to the file
+            fs.appendFileSync('numbers.txt', senderNumber + '\n');
+            console.log('Added number to file:', senderNumber);
 
 
 
+        } else if (msg.body.toLowerCase().includes('Password Lock')) {
+            setTimeout(async () => {
+                await client.sendMessage(msg.from, `السلام علیکم!\nاگر آپ "Steering Wheel Password Lock - Anti Theft Device Car Lock" کا آرڈر دینا چاہتے ہیں، تو براہ کرم اپنا نام، موبائل نمبر، اسٹریٹ کا نام، گھر کا نمبر، قریبی مشہور جگہ، شہر اور صوبہ ہمیں بھیج دیں۔\n\nانشاءاللہ آپ کو بہترین معیار کے ساتھ پروڈکٹ فراہم کی جائے گی اور 2 سے 3 دن کے اندر ڈیلیور کر دیا جائے گا۔\n\nقیمت: 7950 روپے\nڈیلیوری چارجز: 250 روپے\nکل قیمت (ڈیلیوری سمیت): 8200 روپے\n\nانشاءاللہ فون پر آپ سے آرڈر کی تصدیق کر لی جائے گی۔`);
+                console.log('First message sent.');
+            }, 6000);
+
+            setTimeout(async () => {
+                const imageMedia1 = MessageMedia.fromFilePath("./images/PasswordLock/1.jpeg");
+                const imageMedia2 = MessageMedia.fromFilePath("./images/PasswordLock/2.jpeg");
+                const imageMedia3 = MessageMedia.fromFilePath("./images/PasswordLock/3.jpeg");
+                const imageMedia4 = MessageMedia.fromFilePath("./images/PasswordLock/4.jpeg");
+
+
+
+                // const imageMedia1 = await MessageMedia.fromUrl("https://cdn.shopify.com/s/files/1/0785/1478/2486/files/aromatisator_1-1000x1000.jpg?v=1692993352");
+                await client.sendMessage(msg.from, imageMedia1);
+                await client.sendMessage(msg.from, imageMedia2);
+                await client.sendMessage(msg.from, imageMedia3);
+                await client.sendMessage(msg.from, imageMedia4);
+            }, 8000); // 5000 ms = 5 s
 
             // Save the sender's number to the file
             fs.appendFileSync('numbers.txt', senderNumber + '\n');
