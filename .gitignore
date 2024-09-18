@@ -1,3 +1,8 @@
 node_modules
 package-lock.json
 google-chrome-stable_current_amd64.deb
+encodings/*
+
+
+# to reset the gitignore file to default run the following command:
+# git config --global core.excludesfile ~/.gitignore_global
